@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div class="header">
+      <h1>Welcome to the front page of the front page of the Internet</h1>
+      <h3>Here you can get an abriged version of your favorite subreddits</h3>
+      <!-- <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Currently browsing: {{ selected }}</span> -->
+    </div>
+    <div class="container">
+
+      <subreddit name="aww" selected="top">
+
+      </subreddit>
+      <subreddit name="all" selected="top"></subreddit>
+      <subreddit name="gifs" selected="top"></subreddit>
+      <subreddit name="food" selected="top"></subreddit>
+      <subreddit name="comics" selected="top"></subreddit>
+      <subreddit name="sports" selected="top"></subreddit>
+    </div>
+  </div>
+  <template id="subreddit">
+    <div class="subreddit">
+
+      <h2 class="header">
+        {{name|uppercase}}
+
+      </h2>
+
+      <ul class="item-list">
+        <li v-for="obj in posts">
+          <post :item="obj"></post>
+        </li>
+      </ul>
+    </div>
+  </template>
+  <template id="post">
+    <div class="post">
+      <a :href="item.data.url" :style="getImageBackgroundCSS(item.data.thumbnail)"
+        target="_blank" class="thumbnail"></a>
+      <div class="details">
+        <a :href="item.data.url" :titles="item.data.title" target="_blank" class="title">
+          {{item.data.title|truncate}}
+        </a>
+        <div class="action-buttons">
+          <a :href="'http://reddit.com'+item.data.premalink" title="Vote">
+            <i class="material-icons">thumbs_up_down</i>
+            {{item.data.score}}
+          </a>
+
+           <a :href="'http://reddit.com' + item.data.permalink " title="Go to discussion">
+            <i class="material-icons">forum</i>
+            {{item.data.num_comments}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script src="assets/js/vue.js"></script>
+  <script src="assets/js/vue-resource.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
