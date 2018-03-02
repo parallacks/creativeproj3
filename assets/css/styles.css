@@ -20,6 +20,9 @@ html{
 .header{
   text-align: center;
 }
+.footer{
+  text-align: center;
+}
 .container{
     padding: 27px 20px;
     margin: 30px auto 50px;
