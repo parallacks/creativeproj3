@@ -15,10 +15,11 @@ a:hover{
 html{
     font: normal 16px sans-serif;
     color: #333;
-    background-color: #f9f9f9;
+    background-color: #7d7878;
 }
 .header{
   text-align: center;
+  color: #ededed
 }
 .footer{
   text-align: center;
@@ -30,7 +31,7 @@ html{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: #fff;
+    background-color: #b1a8a8;
     box-shadow: 0 0 1px #ccc;
 }
 
